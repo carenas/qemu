@@ -246,8 +246,12 @@
     #define TARGET_SOCK_MAX (TARGET_SOCK_PACKET + 1)
     #define TARGET_SOCK_TYPE_MASK    0xf  /* Covers up to TARGET_SOCK_MAX-1. */
 
+    #define TARGET_SO_LINGER         0x0080
+
     #define TARGET_SO_PASSSEC        31
 #else
+    #define TARGET_SO_LINGER         13
+
     #define TARGET_SO_PASSSEC        34
 #endif
 
@@ -268,7 +272,7 @@
     #define TARGET_SO_OOBINLINE    10
     #define TARGET_SO_NO_CHECK     11
     #define TARGET_SO_PRIORITY     12
-    #define TARGET_SO_LINGER       13
+
     #define TARGET_SO_BSDCOMPAT    14
     /* To add :#define TARGET_SO_REUSEPORT 15 */
 #if defined(TARGET_PPC)
