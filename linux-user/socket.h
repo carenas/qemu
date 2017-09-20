@@ -229,7 +229,9 @@
      * @SOCK_NONBLOCK - sets the O_NONBLOCK file status flag.
      */
 
-    #define ARCH_HAS_SOCKET_TYPES          1
+    #define ARCH_HAS_SOCKET_TYPES    1
+
+    #define TARGET_SOL_SOCKET        0xffff
 
     enum sock_type {
            TARGET_SOCK_STREAM      = 1,
@@ -250,13 +252,12 @@
 
     #define TARGET_SO_PASSSEC        31
 #else
+    #define TARGET_SOL_SOCKET        1
+
     #define TARGET_SO_LINGER         13
 
     #define TARGET_SO_PASSSEC        34
 #endif
-
-    /* For setsockopt(2) */
-    #define TARGET_SOL_SOCKET      1
 
     #define TARGET_SO_DEBUG        1
     #define TARGET_SO_REUSEADDR    2
